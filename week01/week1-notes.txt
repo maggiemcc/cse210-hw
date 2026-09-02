@@ -1,0 +1,49 @@
+# Defined types: One a variable's type is defined it cannot be changed later.
+
+    ## Example: You declare a variable, by specifying the type. Later, when you use the variable, you do not need to specify the type again.
+        int x;
+        x = 5;
+        Console.WriteLine(x);
+
+    ## Example: initialize in one statement
+        int x = 5;
+        Console.WriteLine(x);
+
+    ## Common types are:
+        - int
+        - string
+        - float
+        - double: double precision floating point numbers (just like a float, except it takes up twice as much memory, so it can hold larger numbers or numbers with more decimal places).
+        - bool:  true or false
+
+
+
+# Input and Output:
+    ## To print in the console:
+        Console.WriteLine("Hello World!");
+
+    ## To print in the console without starting a new line:
+        Console.Write("Hello World!");
+    
+    ## To get user input:
+        Console.Write("What is your favorite color? ");
+        string color = Console.ReadLine();
+
+
+
+# Curly braces {}: define the body of an if statement or a function. You don't use a colon : to start the body, and when using if statements, you must always put the condition in parentheses ().
+
+    ## Example:
+        if (x > y)
+        {
+            Console.WriteLine("greater");
+        }
+
+
+# Statements end in semicolons ;
+
+# String interpolation:  if you would like to use a variable inside a string, you start the string with a dollar sign $ in the same way that in Python, you start a format string with an f.
+
+    # Example:
+        string school = "BYU-Idaho";
+        Console.WriteLine($"I am studying at {school}.");
