@@ -12,21 +12,35 @@ class Program
         string letterGrade = "";
 
         if (percent >= 90)
-        { letterGrade = "A"; }
+        {
+            letterGrade = "A";
+        }
         else if (percent >= 80)
-        { letterGrade = "B"; }
+        {
+            letterGrade = "B";
+        }
         else if (percent >= 70)
-        { letterGrade = "C"; }
+        {
+            letterGrade = "C";
+        }
         else if (percent >= 60)
-        { letterGrade = "D"; }
+        {
+            letterGrade = "D";
+        }
         else
-        { letterGrade = "F"; }
+        {
+            letterGrade = "F";
+        }
 
         Console.WriteLine($"Your grade is {letterGrade}");
 
         if (percent >= 70)
-        { Console.WriteLine("Congrats you passed!"); }
+        {
+            Console.WriteLine("Congrats you passed!");
+        }
         else
-        { Console.WriteLine("Sorry, you did not pass. Better luck next time!"); }
+        {
+            Console.WriteLine("Sorry, you did not pass. Better luck next time!");
+        }
     }
 }
