@@ -1,0 +1,95 @@
+# If Statements: the condition of the if statement must be put in parentheses (). curly braces {} that define the body. 
+    ## Example:
+        if (x > y)
+        {
+            Console.WriteLine("greater than");
+        }
+
+    ## Example: if statement within another
+        if (x > y)
+        {
+            if (x > z)
+            {
+                Console.WriteLine("greater than both");
+            }
+        }
+
+
+# Else and Else If:
+    ## Example:
+        if (x > y)
+        {
+            Console.WriteLine("greater than");
+        }
+        else
+        {
+            Console.WriteLine("less than");
+        }
+
+    ## Example:
+    if (x > y)
+    {
+        Console.WriteLine("greater than y");
+    }
+    else if (x > z)
+    {
+        Console.WriteLine("greater than z");
+    }
+    else
+    {
+        Console.WriteLine("less than both");
+    }
+
+
+
+# Operators: uses the == operator to check if two variables are equal, just like in Python. It also supports other operators you are familiar with, such as !=, >=, <=, and so forth:
+
+    ## Example:
+    if (name == "John")
+    {
+        Console.WriteLine("The name is John");
+    }
+
+    ## Example:
+    if (color != favoriteColor)
+    {
+        Console.WriteLine("That color is not my favorite");
+    }
+
+    ## And (&&):
+        if (firstName == "Brigham" && lastName == "Young")
+        {
+            Console.WriteLine("Welcome Brother Brigham!");
+        }
+
+    ## Or (||):
+        if (name == "Peter" || name == "James" || name == "John")
+        {
+            Console.WriteLine("This is a biblical name.");
+        }
+
+    ## Not (!):
+        if (!(name == "Peter" || name == "James" || name == "John"))
+        {
+            Console.WriteLine("This is a not one of those three");
+        }
+
+
+# Variables and Types: aming convention for variables is to use "camel case." 
+    ## Example:
+        string color;
+        string firstName;
+        string lastName;
+        int velocityBeforeImpactWasMade;
+
+    ## Converting Types: you can convert a value of a variable to a different type using int.Parse().
+
+        ### Example:
+            string valueInText = "42";
+            int number = int.Parse(valueInText);
+    
+    ## Numbers to Strings: an integer can be converted to a string using the .ToString().
+
+        ### Example:
+            int number = 42;
+            string textVersion = number.ToString();
