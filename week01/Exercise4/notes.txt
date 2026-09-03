@@ -1,0 +1,43 @@
+# Collections: Any file that uses Lists (or any other standard collection), must refer to that library at the top of the file. (This is so common that sometimes your settings for C# can be specified so that you do not have to include this, but it is important to know about it, in case you run into problems.)
+
+    using System.Collections.Generic;
+
+    Examples of Collections:
+        - lists
+        - sets
+        - dictionaries
+
+
+# Lists: You must declare it is a list and the type of data that can be put in the list.
+    ## Example:
+        List<int> numbers;
+        numbers = new List<int>();
+
+    ## Example: One line
+        List<int> numbers = new List<int>();
+        List<string> words = new List<string>();
+
+    ## Adding items to a list: .Add()
+        using System.Collections.Generic;
+        ...
+        List<string> words = new List<string>();
+
+        words.Add("phone");
+        words.Add("keyboard");
+        words.Add("mouse");
+    
+    ## Getting list size: Count
+        Console.WriteLine(words.Count);
+
+    ## Iterate thru a list: 
+        ### foreach loop
+            foreach (string word in words)
+            {
+                Console.WriteLine(word);
+            }
+
+        ### access items by their index:
+            for (int i = 0; i < words.Count; i++)
+            {
+                Console.WriteLine(words[i]);
+            }
