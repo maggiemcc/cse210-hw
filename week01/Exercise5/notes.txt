@@ -1,0 +1,46 @@
+# Functions general structure:
+    returnType FunctionName(dataType parameter1, dataType parameter2)
+    {
+        // function_body
+    }
+
+# each function must define its return type, for example, whether it will return an int, a string, or nothing (the return type for nothing is void).
+
+    ## void example: a function that does not have parameters or a return type
+    void DisplayMessage()
+    {
+        Console.WriteLine("Hello world!");
+    }
+
+    ## void example with a single string parameter:
+    void DisplayPersonalMessage(string userName)
+    {
+        Console.WriteLine($"Hello {userName}");
+    }
+
+    ## Int function:
+    int AddNumbers(int first, int second)
+    {
+        int sum = first + second;
+        return sum;
+    }
+
+
+# Functions vs Methods: standalone functions and member functions, which are called methods. If you want to define "regular" standalone function, you need to use the static keyword. This tells C# that you want your functions to be able to be called without any other context.
+
+    ## Example of standalone/static functions:
+        static void DisplayMessage()
+        {
+            Console.WriteLine("Hello world!");
+        }
+
+        static void DisplayPersonalMessage(string userName)
+        {
+            Console.WriteLine($"Hello {userName}");
+        }
+
+        static int AddNumbers(int first, int second)
+        {
+            int sum = first + second;
+            return sum;
+        }    
