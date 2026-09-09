@@ -1,0 +1,78 @@
+# Abstraction: turning complex ideas into simple ones. It is removing characteristics from something so that only the essential ones remain. That is, a different function that simplifies a higher order idea or task. This layering of abstractions is exactly how all of the software used in the world today, from text editors like Notepad to social media platforms like Facebook, is written.
+
+# Objects: a conceptual model for a category of things, real or imagined, that has a specific responsibility within our program. Objects have state and behavior that allow them to fulfill their responsibility.
+
+    ## Example: The person object may have state like "given name" and "family name". It may also have related behaviors like "show western name" (given name first) and "show eastern name" (given name last). Following is a graphical depiction of our person object.
+        object: person
+        responsibility: to hold and display identifying information.
+        behaviors: show eastern name (given first name), show western name (given last name)
+        state: given name, family name
+
+        The following is an example of the Class Diagram for the Person class described above:
+        Person
+        _givenName : string
+        _familyName : string
+        ShowEasternName() : void
+        ShowWesternName() : void
+
+        // A code template for the category of things known as Person. The
+        // responsibility of a Person is to hold and display personal information.
+        public class Person
+        {
+            // The C# convention is to start member variables with an underscore _
+            public string _givenName = "";
+            public string _familyName = "";
+
+            // A special method, called a constructor that is invoked using the  
+            // new keyword followed by the class name and parentheses.
+            public Person()
+            {
+            }
+
+            // A method that displays the person's full name as used in eastern 
+            // countries or <family name, given name>.
+            public void ShowEasternName()
+            {
+                Console.WriteLine($"{_familyName}, {_givenName}");
+            }
+
+            // A method that displays the person's full name as used in western 
+            // countries or <given name family name>.
+            public void ShowWesternName()
+            {
+                Console.WriteLine($"{_givenName} {_familyName}");
+            }
+        }        
+
+
+# Classes and Files: To make it easy to find classes, the standard for C#, and many other languages, is to put each public class in its own file. The name of this file should exactly match the class name, including capitalization, and then it should have an extension of .cs for C Sharp.
+    ## Example: the Person class should be in Person.cs. Similarly, a Book class should be found in Book.cs, an IllustratedComicBook class should be found in IllustratedComicBook.cs, and so forth.
+
+
+# Classes and Instances: By itself, a class is just a template for something. It only becomes useful when an instance is created and assigned to a variable in your program. An instance is the realization of attributes and methods in the computer's memory.
+    ## Example: Another way to think about creating an instance of a class is to imagine baking a cake. In this metaphor, a class is like the recipe. It is a template for a cake but not the actual baked good. In contrast, an instance is what comes out of the oven. It is a realization of the recipe details in a sweet tasting crumb!
+
+    ## Example:
+        Person person = new Person();
+        person._givenName = "Joseph";
+        person._familyName = "Smith";
+        person.ShowWesternName();
+        person.ShowEasternName();
+
+        OUTPUT:
+        Joseph Smith
+        Smith, Joseph
+
+
+# Custom Data Types: For example, in C# there are built-in data types for integers and strings. When you declare a variable of these types, it is like making a box that can hold that type of data, and putting a label on the outside of the box with the variable name.
+    ## Example:
+        int height;
+        string color;
+
+    ## Example:
+    public class Blind
+        {
+        public double _width;
+        public double _height;
+        public string _color;
+        }
