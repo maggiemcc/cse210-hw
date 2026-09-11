@@ -1,4 +1,5 @@
 using System;
+using System.IO; 
 
 class Program
 {
@@ -25,29 +26,36 @@ class Program
             Journal theJournal = new Journal();
             Entry anEntry = new Entry();
             PromptGenerator thePrompt = new PromptGenerator();
+            Journal loadFile = new Journal();
+            Journal saveFile = new Journal();
             
-
             if (choice == 1)
             {
                 string randomPrompt = thePrompt.GetRandomPrompt();
-                Console.Write($"{randomPrompt} ");
+                Console.Write($"{randomPrompt} \n> ");
                 string userResponse = Console.ReadLine(); 
+                anEntry._date = dateText;
+                anEntry._entryText = userResponse;
+                anEntry._promptText = randomPrompt;
+                anEntry.Display();
             }
 
             else if (choice == 2)
             {
-
-            }
-            else if (choice == 3)
-            {
-                anEntry._date = dateText;
-                anEntry._entryText = "Stressful.";
                 anEntry.Display();
 
             }
+
+            else if (choice == 3)
+            {
+                string filename = "myFile.txt";
+                loadFile.LoadFromFile(filename);  
+            }
+
             else if (choice == 4)
             {
-
+                string filename = "myFile.txt";
+                saveFile.SaveToFile(filename);
             }
         }
 
