@@ -15,9 +15,12 @@ public class Journal
     {
         using (StreamWriter outputFile = new StreamWriter(file))
         {
+            // You can add text to the file with the WriteLine method
+            outputFile.WriteLine("This will be the first line in the file,");
+
             // You can use the $ and include variables just like with Console.WriteLine
-            // string prompt = randomPrompt;
-            //     outputFile.WriteLine($"{prompt}");
+            string color = "Red";
+            outputFile.WriteLine($"My favorite color is {color}");
         }
 
     }

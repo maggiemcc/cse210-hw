@@ -48,13 +48,17 @@ class Program
 
             else if (choice == 3)
             {
-                string filename = "myFile.txt";
+                Console.Write("Please write a filename name you would like to view (ex: journal, trips): ");
+                string userResponse = Console.ReadLine();
+                string filename = $"{userResponse}.txt";
                 loadFile.LoadFromFile(filename);  
             }
 
             else if (choice == 4)
             {
-                string filename = "myFile.txt";
+                Console.Write("Please write a filename: ");
+                string userResponse = Console.ReadLine();
+                string filename = $"{userResponse}.txt";
                 saveFile.SaveToFile(filename);
             }
         }

@@ -5,7 +5,6 @@ public class Entry
     public string _date;
     public string _promptText;
     public string _entryText;
-    // public string _newEntry;
     
     public void Display()
     {
@@ -13,7 +12,5 @@ public class Entry
         string _date = theCurrentTime.ToShortDateString();
 
         Console.WriteLine($"{_date} - {_promptText}: {_entryText}");
-
-        // _newEntry = $"{_date} - {_promptText}: {_entryText}";
     }
 }
