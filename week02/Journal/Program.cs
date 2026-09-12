@@ -10,7 +10,7 @@ class Program
         choice = 0;
 
         Journal theJournal = new Journal();
-        Entry anEntry = new Entry();
+        // Entry anEntry = new Entry();
         Journal loadFile = new Journal();
         Journal saveFile = new Journal();
 
@@ -26,6 +26,8 @@ class Program
 
             if (choice == 1)
             {
+                Entry anEntry = new Entry();
+
                 string randomPrompt = thePrompt.GetRandomPrompt();
                 Console.Write($"{randomPrompt} \n> ");
                 string userResponse = Console.ReadLine();
