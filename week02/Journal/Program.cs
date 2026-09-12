@@ -6,13 +6,10 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello World! This is the Journal Project.");
+        Journal theJournal = new Journal();
+
         int choice;
         choice = 0;
-
-        Journal theJournal = new Journal();
-        // Entry anEntry = new Entry();
-        Journal loadFile = new Journal();
-        Journal saveFile = new Journal();
 
         while (choice != 5)
         {
@@ -26,8 +23,6 @@ class Program
 
             if (choice == 1)
             {
-                Entry anEntry = new Entry();
-
                 string randomPrompt = thePrompt.GetRandomPrompt();
                 Console.Write($"{randomPrompt} \n> ");
                 string userResponse = Console.ReadLine();
@@ -35,6 +30,7 @@ class Program
                 DateTime theCurrentTime = DateTime.Now;
                 string date = theCurrentTime.ToShortDateString();
 
+                Entry anEntry = new Entry();
                 anEntry._date = date;
                 anEntry._promptText = randomPrompt;
                 anEntry._entryText = userResponse;
@@ -49,16 +45,21 @@ class Program
 
             else if (choice == 3)
             {
-                Console.Write("Please write a filename name you would like to view (ex: journal, trips): ");
+                Console.Write("Please write a filename name you would like to view (ex: journal.txt): ");
                 string filename = Console.ReadLine();
-                loadFile.LoadFromFile(filename);
+                theJournal.LoadFromFile(filename);
             }
 
             else if (choice == 4)
             {
-                Console.Write("Please write a filename: ");
+                Console.Write("Please write a filename you would like to save (ex: journal.txt): ");
                 string filename = Console.ReadLine();
-                saveFile.SaveToFile(filename);
+                theJournal.SaveToFile(filename);
+            }
+
+            else if (choice >= 0 || choice <= 6)
+            {
+                Console.WriteLine("Sorry, that was an invalid choice. Please try again!");
             }
         }
 

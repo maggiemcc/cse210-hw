@@ -7,7 +7,11 @@ public class Journal
     public void AddEntry(Entry newEntry)
     {
         _entries.Add(newEntry);
-        // _entries.userEntry(item => Console.WriteLine($">>{item._entryText}"));
+
+        // foreach (Entry item in _entries)
+        // {
+        //     Console.WriteLine($">> {item._entryText}");
+        // }
     }
 
     public void DisplayAll()
@@ -15,7 +19,7 @@ public class Journal
 
         if (_entries.Count == 0)
         {
-            Console.WriteLine("Whoops! Look like your journal is empty. Time to write something!");
+            Console.WriteLine("Whoops! Looks like your journal is empty. Time to write something!");
             return;
         }
         else if (_entries.Count > 0)
@@ -33,22 +37,39 @@ public class Journal
         {
             foreach (Entry entry in _entries)
             {
-                outputFile.WriteLine($"{entry._date} - {entry._promptText} {entry._entryText}|");
+                outputFile.WriteLine($"{entry._date}|{entry._promptText}|{entry._entryText}");
             }
 
-            Console.WriteLine("Journal saved!");
+            Console.WriteLine("Your journal has been saved!");
         }
 
     }
 
     public void LoadFromFile(string file)
     {
-        string[] lines = System.IO.File.ReadAllLines(file);
-
-        foreach (string entry in lines)
+        if (!File.Exists(file))
         {
-            string[] parts = entry.Split("|");
-            _entries.Add(new Entry());
+            Console.WriteLine("Sorry, we could not find that file. Please try another name.");
+        }
+        else
+        {
+            _entries.Clear();
+            string[] lines = System.IO.File.ReadAllLines(file);
+
+            foreach (string entry in lines)
+            {
+                string[] parts = entry.Split("|");
+
+                if (parts.Length == 3)
+                {
+                    Entry anEntry = new Entry();
+                    anEntry._date = parts[0];
+                    anEntry._promptText = parts[1];
+                    anEntry._entryText = parts[2];
+
+                    _entries.Add(anEntry);
+                }
+            }
         }
     }
 }
