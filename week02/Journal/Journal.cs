@@ -7,11 +7,6 @@ public class Journal
     public void AddEntry(Entry newEntry)
     {
         _entries.Add(newEntry);
-
-        // foreach (Entry item in _entries)
-        // {
-        //     Console.WriteLine($">> {item._entryText}");
-        // }
     }
 
     public void DisplayAll()
@@ -33,6 +28,7 @@ public class Journal
 
     public void SaveToFile(string file)
     {
+        // If entries list is empty, file won't be created.
         if (_entries.Count == 0)
         {
             Console.WriteLine("Sorry, file not created. Your journal is empty, so there was nothing to save.");
@@ -40,7 +36,7 @@ public class Journal
 
         else
         {
-            // Check if file doen't have an extension
+            // Check if file doesn't have an extension and add one
             if (!Path.HasExtension(file))
             {
                 file = $"{file}.txt";
@@ -61,6 +57,7 @@ public class Journal
 
     public void LoadFromFile(string file)
     {
+        // Notify user if file doesn't exist
         if (!File.Exists(file))
         {
             Console.WriteLine($"Sorry, we could not find {file}. Please try another name.");
