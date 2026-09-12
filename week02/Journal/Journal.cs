@@ -33,23 +33,37 @@ public class Journal
 
     public void SaveToFile(string file)
     {
-        using (StreamWriter outputFile = new StreamWriter(file))
+        if (_entries.Count == 0)
         {
-            foreach (Entry entry in _entries)
-            {
-                outputFile.WriteLine($"{entry._date}|{entry._promptText}|{entry._entryText}");
-            }
-
-            Console.WriteLine("Your journal has been saved!");
+            Console.WriteLine("Sorry, file not created. Your journal is empty, so there was nothing to save.");
         }
 
+        else
+        {
+            // Check if file doen't have an extension
+            if (!Path.HasExtension(file))
+            {
+                file = $"{file}.txt";
+            }
+
+            using (StreamWriter outputFile = new StreamWriter(file))
+            {
+                foreach (Entry entry in _entries)
+                {
+                    outputFile.WriteLine($"{entry._date}||{entry._promptText}||{entry._entryText}");
+                }
+
+                Console.WriteLine("Your journal has been saved!");
+            }
+
+        }
     }
 
     public void LoadFromFile(string file)
     {
         if (!File.Exists(file))
         {
-            Console.WriteLine("Sorry, we could not find that file. Please try another name.");
+            Console.WriteLine($"Sorry, we could not find {file}. Please try another name.");
         }
         else
         {
@@ -58,7 +72,7 @@ public class Journal
 
             foreach (string entry in lines)
             {
-                string[] parts = entry.Split("|");
+                string[] parts = entry.Split("||");
 
                 if (parts.Length == 3)
                 {
@@ -69,7 +83,14 @@ public class Journal
 
                     _entries.Add(anEntry);
                 }
+                else
+                {
+                    // Notify user of entries that couldn't be added due to incorrect parts
+                    Console.WriteLine($"Could not add entry: {entry}");
+                }
             }
+
+            Console.WriteLine("\nJournal has successfully loaded!");
         }
     }
 }
