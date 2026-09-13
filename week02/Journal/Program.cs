@@ -16,20 +16,20 @@ class Program
         Console.WriteLine("Hello World! This is the Journal Project.");
         Journal theJournal = new Journal();
 
-        int choice;
-        choice = 0;
+        string choice;
+        choice = "";
 
-        while (choice != 5)
+        while (choice != "5")
         {
             Console.WriteLine("\nPlease select one of the following choices: \n1. Write \n2. Display \n3. Load \n4. Save \n5. Quit");
             Console.Write("What would you like to do? ");
-
+            
             string userChoice = Console.ReadLine();
-            choice = int.Parse(userChoice);
+            choice = userChoice.ToString();
 
             PromptGenerator thePrompt = new PromptGenerator();
-
-            if (choice == 1)
+            
+            if (choice == "1")
             {
                 string randomPrompt = thePrompt.GetRandomPrompt();
                 Console.Write($"{randomPrompt} \n> ");
@@ -46,32 +46,36 @@ class Program
                 theJournal.AddEntry(anEntry);
             }
 
-            else if (choice == 2)
+            else if (choice == "2")
             {
                 theJournal.DisplayAll();
             }
 
-            else if (choice == 3)
+            else if (choice == "3")
             {
                 Console.Write("Please write a filename name you would like to view (ex: journal.txt): ");
                 string filename = Console.ReadLine();
                 theJournal.LoadFromFile(filename);
             }
 
-            else if (choice == 4)
+            else if (choice == "4")
             {
                 Console.Write("To save, please write a filename (ex: journal.txt): ");
                 string filename = Console.ReadLine();
                 theJournal.SaveToFile(filename);
             }
 
-            else if (choice >= 0 || choice <= 6)
+            // else if (choice >= 0 || choice <= 6)
+            // {
+            //     Console.WriteLine("Sorry, that was not a valid choice. Please try again!");
+            // }
+            else
             {
                 Console.WriteLine("Sorry, that was not a valid choice. Please try again!");
             }
         }
 
-        if (choice == 5)
+        if (choice == "5")
         {
             Console.WriteLine("Have a good day!");
         }
