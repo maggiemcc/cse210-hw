@@ -64,11 +64,6 @@ class Program
                 string filename = Console.ReadLine();
                 theJournal.SaveToFile(filename);
             }
-
-            // else if (choice >= 0 || choice <= 6)
-            // {
-            //     Console.WriteLine("Sorry, that was not a valid choice. Please try again!");
-            // }
             else
             {
                 Console.WriteLine("Sorry, that was not a valid choice. Please try again!");
