@@ -5,5 +5,21 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello World! This is the Fractions Project.");
+
+        Fraction one = new Fraction();
+        Console.WriteLine(one.GetFractionString());
+        Console.WriteLine(one.GetDecimalValue());
+
+        Fraction two = new Fraction(6);
+        Console.WriteLine(two.GetFractionString());
+        Console.WriteLine(two.GetDecimalValue());
+
+        Fraction three = new Fraction(2, 8);
+        Console.WriteLine(three.GetFractionString());
+        Console.WriteLine(three.GetDecimalValue());
+
+        Fraction four = new Fraction(1, 3);
+        Console.WriteLine(four.GetFractionString());
+        Console.WriteLine(four.GetDecimalValue());
     }
 }
