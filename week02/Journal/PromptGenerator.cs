@@ -13,7 +13,7 @@ public class PromptGenerator
         "What is your favorite quote?",
         "What is your favorite scripture verse?",
         "What is a song that makes you happy?"
-        ];
+    ];
 
 
     public string GetRandomPrompt()

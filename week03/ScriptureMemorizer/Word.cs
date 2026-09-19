@@ -7,26 +7,40 @@ public class Word
 
     public Word(string text)
     {
-        
+        _text = text;
+        _isHidden = false;
     }
 
     public void Hide()
     {
-        
+        _isHidden = true;
     }
 
     public void Show()
     {
-        
+        _isHidden = false;
     }
 
     public bool IsHidden()
     {
-        return false;
+        return _isHidden;
     }
 
     public string GetDisplayText()
     {
-        return "testing";
+        if (_isHidden)
+        {
+            string wordUnderscores = "";
+
+            foreach (char letter in _text)
+            {
+                wordUnderscores += "_";
+            }
+            return wordUnderscores;
+        }
+        else
+        {
+            return _text;
+        }
     }
 }
