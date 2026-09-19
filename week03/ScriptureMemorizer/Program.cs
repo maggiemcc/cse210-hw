@@ -29,8 +29,7 @@ class Program
 
             Console.WriteLine(scripture.GetDisplayText());
             Console.Write("\nPress enter to hide random words or type 'quit' to quit: ");
-            string userEnter = Console.ReadLine();
-            userInput = userEnter.ToLower();
+            userInput = Console.ReadLine().ToLower();
 
             if (scripture.IsCompletelyHidden())
             {

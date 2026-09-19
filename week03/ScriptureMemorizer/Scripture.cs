@@ -53,9 +53,10 @@ public class Scripture
         foreach (Word word in _words)
         {
             if (!word.IsHidden())
-            return false; 
+            {
+                return false; 
+            }
         }
-
         return true;
     }
 }

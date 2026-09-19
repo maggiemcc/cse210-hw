@@ -32,7 +32,7 @@ public class Word
         {
             string wordUnderscores = "";
 
-            foreach (char letter in _text)
+            foreach (var letter in _text)
             {
                 wordUnderscores += "_";
             }
