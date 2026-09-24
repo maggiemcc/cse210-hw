@@ -17,9 +17,9 @@ public class Order
     public double GetTotalCost()
     {
         double total = 0;
-        foreach (Product item in _products)
+        foreach (Product product in _products)
         {
-            total += item.GetTotalCost();
+            total += product.GetTotalCost();
         }
 
         total += _customer.LivesInUSA() ? 5 : 35;
@@ -29,9 +29,9 @@ public class Order
     public string GetPackingLabel()
     {
         string label = "PACKING LABEL:\n";
-        foreach (Product item in _products)
+        foreach (Product product in _products)
         {
-            label += item.GetPackingLabel() + "\n";
+            label += product.GetPackingLabel() + "\n";
         }
         return label;
     }
