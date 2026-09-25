@@ -19,7 +19,7 @@ public class Order
         double total = 0;
         foreach (Product product in _products)
         {
-            total += product.GetTotalCost();
+            total += product.TotalCost();
         }
 
         total += _customer.LivesInUSA() ? 5 : 35;
@@ -31,14 +31,14 @@ public class Order
         string label = "PACKING LABEL:\n";
         foreach (Product product in _products)
         {
-            label += product.GetPackingLabel() + "\n";
+            label += product.PackingLabel() + "\n";
         }
         return label;
     }
 
     public string GetShippingLabel()
     {
-        return $"SHIPPING LABEL: \n{_customer.GetShippingLabel()}";
+        return $"SHIPPING LABEL: \n{_customer.ShippingLabel()}";
     }
 
 }

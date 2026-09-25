@@ -15,7 +15,7 @@ public class Customer
         return _address.InUSA();
     }
 
-    public string GetShippingLabel()
+    public string ShippingLabel()
     {
         return $"{_name}\n{_address.FullAddress()}";
     }

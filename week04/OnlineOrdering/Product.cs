@@ -14,12 +14,12 @@ public class Product
         _quantity = quantity;
     }
 
-    public double GetTotalCost()
+    public double TotalCost()
     {
         return _price * _quantity;
     }
 
-    public string GetPackingLabel()
+    public string PackingLabel()
     {
         return $"{_name} (ID: {_productId})";
     }
