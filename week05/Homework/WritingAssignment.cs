@@ -1,6 +1,11 @@
 public class WritingAssignments
 {
-    protected string _title;
+    private string _title;
+
+    public WritingAssignments(string title)
+    {
+        _title = title;
+    }
 
     public string GetWritingInformation()
     {

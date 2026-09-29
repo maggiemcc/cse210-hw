@@ -1,8 +1,15 @@
 public class Assignment
 {
-    protected string _studentName;
-    protected string _topic;
-    protected string _title;
+    private string _studentName;
+    private string _topic;
+    private string _title;
+
+    public Assignment(string studentName, string topic, string title)
+    {
+        _studentName = studentName;
+        _topic = topic;
+        _title = title;
+    }
 
 
     public string GetSummary()
