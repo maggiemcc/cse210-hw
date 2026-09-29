@@ -1,0 +1,62 @@
+# Inheritance: is the ability for one class to obtain the attributes and methods of another class directly, without having to type them.
+
+    ## Example:
+        // a regular class called Person which is the parent class or base/super class
+        public class Person
+        {
+            public string GetName()
+            {
+                return "Joseph";
+            }
+        }
+
+        // a class that inherits from Person which is the child class or derived/sub class
+        public class Student : Person
+        {
+            public string GetNumber()
+            {
+                return "0123456789";
+            }
+        }
+
+        // the student instance automatically has the GetName() method!
+        Student student = new Student();
+        string name = student.GetName();
+        Console.WriteLine(name);
+
+
+
+# Super and Base: In some circumstances, it is helpful to be able to call methods in a parent class from a child class. In C#, you use the base keyword.
+
+    ## Example:
+        // a child class called Student
+        public class Student : Person
+        {
+            private string _number;
+
+            // calling the parent constructor using "base"!
+            public Student(string name, string number) : base(name)
+            {
+                _number = number;
+            }
+
+        }
+
+    ## Example: Note that base is not limited to constructors. We can use it anywhere in the derived class methods, with dot notation, to invoke a behavior in the parent class as the following example shows.
+
+        string number = base.GetName();
+        Console.WriteLine($"Student Number: {number}");
+
+
+
+# Accessing Private Data: There are two ways to get private data. 
+    1. Create a getter for the _name variable in the base class and then, in this method, you could call the getter to access the value.
+
+    2. Make the variable accessible to the derived class. We have previously learned about public and private, but there is another level in between them called protected. Member variables and methods that are labeled as protected can be accessed by methods in the class as well as by methods in derived classes, but they cannot be accessed by code outside of these classes.
+
+
+
+# Substitution and Is-A Relationships: An important point to note with inheritance is that because a derived class "is a" more specific version of a super class (for example, a student "is a" person), not only does the derived class inherit all of the traits and behaviors of the super class, but you should be able to use the derived class anywhere you can use the super class.
+
+
+# Liskov Substitution Principle: The idea of being able to substitute a derived object in place of an inherited type.
