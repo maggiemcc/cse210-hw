@@ -2,18 +2,21 @@ public class Assignment
 {
     private string _studentName;
     private string _topic;
-    private string _title;
 
-    public Assignment(string studentName, string topic, string title)
+    public Assignment(string studentName, string topic)
     {
         _studentName = studentName;
         _topic = topic;
-        _title = title;
+    }
+
+    public string GetStudentName()
+    {
+        return _studentName;
     }
 
 
     public string GetSummary()
     {
-        return "";
+        return _studentName + " - " + _topic;
     }
 }

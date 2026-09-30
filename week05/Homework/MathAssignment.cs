@@ -1,9 +1,9 @@
-public class MathAssignments
+public class MathAssignments : Assignment
 {
     private string _textbookSection;
     private string _problems;
 
-    public MathAssignments(string textbookSection, string problems)
+    public MathAssignments(string studenName, string topic, string textbookSection, string problems) : base(studenName, topic)
     {
         _textbookSection = textbookSection;
         _problems = problems;
@@ -11,6 +11,6 @@ public class MathAssignments
 
     public string GetHomeworkList()
     {
-        return "";
+        return $"Section {_textbookSection} Problems {_problems}";
     }
 }
