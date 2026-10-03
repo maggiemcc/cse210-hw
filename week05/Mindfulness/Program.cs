@@ -1,7 +1,6 @@
 using System;
 // Exceeding Expectations: 
 // Added an if-else statement to handle invalid user input for how long the activity sessions should be so the program doesn't crash.
-
 // Keeping a log of how many times activities were performed and is displayed when the user quits the program.
 
 class Program
@@ -52,9 +51,9 @@ class Program
         }
 
         Console.WriteLine("\nCongrats! You have completed the following:");
-        foreach (var item in activityCounter)
+        foreach (var activity in activityCounter)
         {
-            Console.WriteLine($"{item.Key}: {item.Value}");
+            Console.WriteLine($"{activity.Key}: {activity.Value}");
         }
         Console.WriteLine("\nGoodbye! Have a great day!");
     }

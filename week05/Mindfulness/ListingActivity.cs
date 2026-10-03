@@ -10,7 +10,8 @@ public class ListingActivity : Activity
         "Who are people that you appreciate?",
         "What are personal strengths of yours?",
         "Who are people that you have helped this week?",
-        "Who are some of your personal heroes?"
+        "Who are some of your personal heroes?",
+        "What are some goals you have for the future?"
     };
 
     public ListingActivity() : base("Listing", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.")
@@ -20,7 +21,7 @@ public class ListingActivity : Activity
     {
         DisplayStartingMessage();
         Console.WriteLine("\nList as many responses as you can to the following prompt:");
-        Console.WriteLine($"\n--- {GetRandomPrompt()} ---");
+        GetRandomPrompt();
         Console.Write("\nYou may begin in: ");
         ShowCountDown(5);
         Console.WriteLine();
@@ -38,14 +39,15 @@ public class ListingActivity : Activity
 
         _count = usersList.Count;
         Console.WriteLine($"You listed {_count} items.");
+
         DisplayEndingMessage();
     }
 
-    public string GetRandomPrompt()
+    public void GetRandomPrompt()
     {
         Random random = new Random();
         string prompt = _prompts[random.Next(_prompts.Count)];
-        return prompt;
+        Console.WriteLine($"\n--- {prompt} ---");
     }
 
     public List<string> GetListFromUser()

@@ -39,7 +39,7 @@ public class Activity
         Console.WriteLine("\nWell Done!!");
         ShowSpinner(3);
 
-        Console.WriteLine($"\nYou have completed a {_duration} seconds session of the {_name} Activity");
+        Console.WriteLine($"\nYou have completed a {_duration} seconds session of the {_name} Activity!");
         ShowSpinner(5);
     }
 
@@ -59,7 +59,7 @@ public class Activity
         while (DateTime.Now < endTime)
         {
             Console.Write(spinner[i]);
-            Thread.Sleep(300);
+            Thread.Sleep(330);
             Console.Write("\b \b");
 
             i++;
