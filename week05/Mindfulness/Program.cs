@@ -9,8 +9,8 @@ class Program
     {
         Console.WriteLine("Hello World! This is the Mindfulness Project.");
 
+        // Dictonary for tracking number of times activities have been done.
         Dictionary<string, int> activityCounter = new Dictionary<string, int>
-
         {
             { "Breathing Activity", 0 },
             { "Reflecting Activity", 0 },
@@ -50,6 +50,7 @@ class Program
             }
         }
 
+        // Display the count of each activity performed
         Console.WriteLine("\nCongrats! You have completed the following:");
         foreach (var activity in activityCounter)
         {
