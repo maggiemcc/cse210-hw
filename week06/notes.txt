@@ -1,0 +1,137 @@
+# Polymorphism: the ability to take on many forms. In programming, this principle is shown when one line of code can have different behavior depending on the context.
+
+
+# Method Overriding: the ability of a child class to override, or change the behavior of, a method that it inherited from a parent class. The method name stays the same but the behavior, or the code to run is different.
+
+    ## Example: For a salary employee, perhaps the salary is just returned as shown in this example:
+
+        // a parent class
+        public class Employee
+        {
+            private float salary = 100f;
+
+            public float CalculatePay()
+                {
+                    return salary;
+                }
+        }
+
+    ## Example: But if the payroll system also has to account for hourly employees that get paid a certain amount of money based on the number of hours they worked.
+
+    The keyword virtual which tells C# that this method is eligible for another class to override it. Then, in the child class, we use the keyword override
+
+    // the parent class showing the "virtual" keyword included
+    public class Employee
+    {
+        private float salary = 100f;
+
+        public virtual float CalculatePay()
+            {
+                return salary;
+            }
+        }
+
+        // a child class
+        public class HourlyEmployee : Employee
+        {
+            private float rate = 9f;
+            private float hours = 100f;
+
+        public override float CalculatePay()
+        {
+            return rate * hours; // pay is calculated differently
+        }
+    }
+
+
+# A Powerful Combination: Inheritance and Method Overriding are a powerful combination. Used together they provide a way to vary runtime behavior according to the context.
+
+    ## Example: 
+    // Create a list of Employees
+    List<Employee> employees = new List<Employee>();
+
+    // Create different kinds of employees and add them to the same list
+    employees.add(new Employee());
+    employees.add(new HourlyEmployee());
+
+    // Get a custom calculation for each one
+    foreach(Employee employee in employees)
+    {
+        float pay = employee.CalculatePay();
+        Console.WriteLine(pay);
+    }
+
+    Output:
+    100
+    900
+
+
+# Polymorphism in Action: this exact same line of code can take on "many forms", or more specifically, it will call different methods depending on the type of the employee object encountered at run time.
+    float pay = employee.CalculatePay();
+
+# Parameter Passing:
+    public class Program
+    {
+        // ...
+
+        static void DisplayPayCheck(Employee e)
+        {
+            float pay = e.CalculatePay();
+            // ...
+        }
+    }
+
+
+# Return Values: 
+    public class Program
+    {
+        // ...
+
+        static Employee GetManager()
+        {
+            // ... code here to find the manager ...
+            return theManager;
+        }
+
+        static void DisplayManagerPay()
+        {
+            Employee manager = GetManager();
+            float pay = manager.CalculatePay();
+            // ...
+        }
+    }
+
+# Abstract Methods: A blank virtual method has a special name, it is called an Abstract method. Any class that has at least one abstract method is an Abstract class. This means that the base abstract class cannot be directly instantiated, you can only create objects from the derived types.
+
+    // the parent class showing the abstract keyword included
+    public abstract class Employee
+    {
+        private string _employeeName;
+
+        // Notice the abstract method doesn't have a body at all (not even an empty one)
+        // and it is followed by a semicolon.
+        public abstract float CalculatePay();
+    }
+
+    // a child class
+    public class SalaryEmployee : Employee
+    {
+        private float salary = 100f;
+
+        public override float CalculatePay()
+        {
+            return salary;
+        }
+    }
+
+    // a child class
+    public class HourlyEmployee : Employee
+    {
+        private float rate = 9f;
+        private float hours = 100f;
+
+        public override float CalculatePay()
+        {
+            return rate * hours; // pay is calculated differently
+        }
+    }
