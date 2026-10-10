@@ -3,6 +3,40 @@ public class GoalManager
     private List<Goal> _goals;
     private int _score;
 
+    Dictionary<string, string> userLevels = new Dictionary<string, string>
+    {
+        { "Level 1", "★" },
+        { "Level 2", "★★" },
+        { "Level 3", "★★★" },
+        { "Level 4","★★★★" },
+        { "Level 5", "★★★★★" }
+    };
+
+    public void GetLevel()
+    {
+        Console.Write("Congrats! You are ");
+        if (_score > 0 && _score <= 50)
+        {
+            Console.WriteLine($"Level 1: {userLevels["Level 1"]}");
+        }
+        else if (_score > 50 && _score <= 200)
+        {
+            Console.Write($"Level 2: {userLevels["Level 2"]}");
+        }
+        else if (_score > 200 && _score <= 400)
+        {
+            Console.WriteLine($"Level 3: {userLevels["Level 3"]}");
+        }
+        else if (_score > 400 && _score <= 600)
+        {
+            Console.WriteLine($"Level 4: {userLevels["Level 4"]}");
+        }
+        else if (_score > 600)
+        {
+            Console.WriteLine($"Max Level Reached! \nLevel 5: {userLevels["Level 5"]}");
+        }
+    }
+
     public GoalManager()
     {
         _goals = new List<Goal>();
@@ -17,6 +51,7 @@ public class GoalManager
         while (choice != "6")
         {
             Console.WriteLine($"\nYou have {_score} points.");
+            GetLevel();
             Console.WriteLine("\nMenu Options:");
             Console.WriteLine("1. Create New Goal");
             Console.WriteLine("2. List Goals");
