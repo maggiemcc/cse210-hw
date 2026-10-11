@@ -14,26 +14,33 @@ public class GoalManager
 
     public void GetLevel()
     {
-        Console.Write("Congrats! You are ");
-        if (_score > 0 && _score <= 50)
+        if (_score <= 20)
         {
-            Console.WriteLine($"Level 1: {userLevels["Level 1"]}");
+            Console.WriteLine("Earn more points to level up!");
         }
-        else if (_score > 50 && _score <= 200)
+        else
         {
-            Console.Write($"Level 2: {userLevels["Level 2"]}");
-        }
-        else if (_score > 200 && _score <= 400)
-        {
-            Console.WriteLine($"Level 3: {userLevels["Level 3"]}");
-        }
-        else if (_score > 400 && _score <= 600)
-        {
-            Console.WriteLine($"Level 4: {userLevels["Level 4"]}");
-        }
-        else if (_score > 600)
-        {
-            Console.WriteLine($"Max Level Reached! \nLevel 5: {userLevels["Level 5"]}");
+            Console.Write("Congrats! You are ");
+            if (_score > 20 && _score <= 50)
+            {
+                Console.WriteLine($"{userLevels.ElementAt(0).Key} {userLevels["Level 1"]}");
+            }
+            else if (_score > 50 && _score <= 200)
+            {
+                Console.Write($"{userLevels.ElementAt(1).Key} {userLevels["Level 2"]}");
+            }
+            else if (_score > 200 && _score <= 400)
+            {
+                Console.WriteLine($"{userLevels.ElementAt(2).Key} \n{userLevels["Level 3"]}");
+            }
+            else if (_score > 400 && _score <= 600)
+            {
+                Console.WriteLine($"{userLevels.ElementAt(3).Key} {userLevels["Level 4"]}");
+            }
+            else if (_score > 600)
+            {
+                Console.WriteLine($"At the maximum Level! \n{userLevels.ElementAt(4).Key} {userLevels["Level 5"]}");
+            }
         }
     }
 
